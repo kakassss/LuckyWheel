@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfd5727589146698eba9c58ef1baffc, type: 3}
+  m_Name: SpinRewardsData
+  m_EditorClassIdentifier: 
+  _bronzeSpinRewards:
+  - RewardName: Coin
+    Amount: 10
+    Icon: {fileID: 21300000, guid: 1d46f64d3fd9b1642894281ef749b1f6, type: 3}
+    HasAmount: 1
+  - RewardName: ArmorPoint
+    Amount: 5
+    Icon: {fileID: 21300000, guid: 9bf5549e4a8c97d4ebf8247d75c1eaa3, type: 3}
+    HasAmount: 1
+  - RewardName: KnifePoints
+    Amount: 5
+    Icon: {fileID: 21300000, guid: 6669e436c46de134da79471528fa5b95, type: 3}
+    HasAmount: 1
+  - RewardName: PistolPoints
+    Amount: 5
+    Icon: {fileID: 21300000, guid: 813b0e9ea92000544b813fa273d821fa, type: 3}
+    HasAmount: 1
+  - RewardName: RiflePoints
+    Amount: 5
+    Icon: {fileID: 21300000, guid: dccc67201fbf6544793f100f5e5e7d5a, type: 3}
+    HasAmount: 1
+  - RewardName: SMGPoints
+    Amount: 5
+    Icon: {fileID: 21300000, guid: f10ca1afdf7eaf045844f0b9117345b0, type: 3}
+    HasAmount: 1
+  - RewardName: SniperPoints
+    Amount: 5
+    Icon: {fileID: 21300000, guid: 341c220fcc72676439fe456408d75c78, type: 3}
+    HasAmount: 1
+  - RewardName: Death
+    Amount: 0
+    Icon: {fileID: 21300000, guid: ba67970051fc7cb47bdc36d3fd399ec1, type: 3}
+    HasAmount: 0
+  _silverSpinRewards:
+  - RewardName: Coin
+    Amount: 50
+    Icon: {fileID: 21300000, guid: 1d46f64d3fd9b1642894281ef749b1f6, type: 3}
+    HasAmount: 1
+  - RewardName: ArmorPoint
+    Amount: 25
+    Icon: {fileID: 21300000, guid: 9bf5549e4a8c97d4ebf8247d75c1eaa3, type: 3}
+    HasAmount: 1
+  - RewardName: KnifePoints
+    Amount: 25
+    Icon: {fileID: 21300000, guid: 6669e436c46de134da79471528fa5b95, type: 3}
+    HasAmount: 1
+  - RewardName: PistolPoints
+    Amount: 25
+    Icon: {fileID: 21300000, guid: 813b0e9ea92000544b813fa273d821fa, type: 3}
+    HasAmount: 1
+  - RewardName: RiflePoints
+    Amount: 25
+    Icon: {fileID: 21300000, guid: dccc67201fbf6544793f100f5e5e7d5a, type: 3}
+    HasAmount: 1
+  - RewardName: SMGPoints
+    Amount: 25
+    Icon: {fileID: 21300000, guid: f10ca1afdf7eaf045844f0b9117345b0, type: 3}
+    HasAmount: 1
+  - RewardName: SniperPoints
+    Amount: 25
+    Icon: {fileID: 21300000, guid: 341c220fcc72676439fe456408d75c78, type: 3}
+    HasAmount: 1
+  - RewardName: Death
+    Amount: 0
+    Icon: {fileID: 21300000, guid: ba67970051fc7cb47bdc36d3fd399ec1, type: 3}
+    HasAmount: 0
+  _goldenSpinRewards:
+  - RewardName: Coin
+    Amount: 100
+    Icon: {fileID: 21300000, guid: 1d46f64d3fd9b1642894281ef749b1f6, type: 3}
+    HasAmount: 1
+  - RewardName: ArmorPoint
+    Amount: 50
+    Icon: {fileID: 21300000, guid: 9bf5549e4a8c97d4ebf8247d75c1eaa3, type: 3}
+    HasAmount: 1
+  - RewardName: KnifePoints
+    Amount: 50
+    Icon: {fileID: 21300000, guid: 6669e436c46de134da79471528fa5b95, type: 3}
+    HasAmount: 1
+  - RewardName: PistolPoints
+    Amount: 50
+    Icon: {fileID: 21300000, guid: 813b0e9ea92000544b813fa273d821fa, type: 3}
+    HasAmount: 1
+  - RewardName: RiflePoints
+    Amount: 50
+    Icon: {fileID: 21300000, guid: dccc67201fbf6544793f100f5e5e7d5a, type: 3}
+    HasAmount: 1
+  - RewardName: SMGPoints
+    Amount: 50
+    Icon: {fileID: 21300000, guid: f10ca1afdf7eaf045844f0b9117345b0, type: 3}
+    HasAmount: 1
+  - RewardName: SniperPoints
+    Amount: 50
+    Icon: {fileID: 21300000, guid: 341c220fcc72676439fe456408d75c78, type: 3}
+    HasAmount: 1
+  - RewardName: Death
+    Amount: 0
+    Icon: {fileID: 21300000, guid: ba67970051fc7cb47bdc36d3fd399ec1, type: 3}
+    HasAmount: 0
