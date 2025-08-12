@@ -1,0 +1,31 @@
+using System;
+using DG.Tweening;
+using UnityEngine;
+
+public class StageScrollBarAnimation : MonoBehaviour
+{
+    [SerializeField] private RectTransform _scrollBarTexts;
+    [SerializeField] private RectTransform _scrollBarImages;
+
+
+    private const int POSX_MOVEMENT = -125;
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Movement();
+        }
+    }
+
+    private void Movement()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.SetAutoKill(true);
+        
+        
+        sequence.Join(_scrollBarTexts.DOAnchorPos(new Vector2(_scrollBarTexts.anchoredPosition.x + POSX_MOVEMENT,_scrollBarTexts.anchoredPosition.y), .5f));
+        sequence.Join(_scrollBarImages.DOAnchorPos(new Vector2(_scrollBarImages.anchoredPosition.x + POSX_MOVEMENT,_scrollBarImages.anchoredPosition.y), .5f));
+    }
+}
