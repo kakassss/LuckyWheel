@@ -13,7 +13,7 @@ public class SpinMovement
     private void SetTargetRotation()
     {
         var randomAngleIndex = Random.Range(0, 8);
-        var randomAngle = SPIN_ANGLE * randomAngleIndex;
+        var randomAngle = (SPIN_ANGLE * randomAngleIndex) + (SPIN_360 * SPIN_360AMOUNT);
         targetRotation = new Vector3(0, 0, randomAngle);
     }
     

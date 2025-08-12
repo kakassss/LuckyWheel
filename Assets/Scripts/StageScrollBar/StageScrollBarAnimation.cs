@@ -1,24 +1,13 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class StageScrollBarAnimation : MonoBehaviour
 {
+    private const int POSX_MOVEMENT = -125;
+    
     [SerializeField] private RectTransform _scrollBarTexts;
     [SerializeField] private RectTransform _scrollBarImages;
-
-
-    private const int POSX_MOVEMENT = -125;
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Movement();
-        }
-    }
-
+    
     private void Movement()
     {
         Sequence sequence = DOTween.Sequence();
