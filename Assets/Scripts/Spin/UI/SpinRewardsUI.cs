@@ -35,10 +35,10 @@ public class SpinRewardsUI : MonoBehaviour
     {
         for (int i = 0; i < _spinRewardUIData.Count; i++)
         {
-            _spinRewardUIData[i].Text.gameObject.SetActive(_spinRewardManager.CurrentSpinRewardData[i].Amount > 0);
+            _spinRewardUIData[i].Text.gameObject.SetActive(_spinRewardManager.CurrentSpinRewardDataList[i].Amount > 0);
 
-            _spinRewardUIData[i].Text.text = _spinRewardManager.CurrentSpinRewardData[i].Amount.ToString();
-            _spinRewardUIData[i].Image.sprite = _spinRewardManager.CurrentSpinRewardData[i].Icon;
+            _spinRewardUIData[i].Text.text = _spinRewardManager.CurrentSpinRewardDataList[i].Amount.ToString();
+            _spinRewardUIData[i].Image.sprite = _spinRewardManager.CurrentSpinRewardDataList[i].Icon;
         }
     }
 }

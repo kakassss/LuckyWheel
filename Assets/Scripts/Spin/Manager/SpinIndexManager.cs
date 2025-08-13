@@ -24,7 +24,6 @@ public class SpinIndexManager : IDisposable
     private void IncreaseSpinIndex()
     {
         _currentSpinIndex++;
-        Debug.Log("xdxd " +  _currentSpinIndex);
     }
 
     public int GetCurrentSpinIndex()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3932094986576384082}
   - component: {fileID: 2007450378584627821}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Image_Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4573be1ddaa94546bd1ee2531e982fa, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3599053360955683391}
   - component: {fileID: 5997832549103861741}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_RewardAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,8 +220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8842169830293070596}
+  - component: {fileID: 8690380470125540043}
   m_Layer: 5
-  m_Name: P_UI_Group_Reward
+  m_Name: P_UI_InventoryData_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,6 +247,26 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000002861, y: 265.0151}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 153.378, y: 86.6555}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8690380470125540043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842169830293070599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4da2c37a2aacb4448c44a35982e8b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpinRewardData:
+    RewardName: 
+    Amount: 0
+    Icon: {fileID: 0}
+    HasAmount: 1
+  image: {fileID: 2007450378584627821}
+  Text: {fileID: 5997832549103861741}
+  Amount: 0
