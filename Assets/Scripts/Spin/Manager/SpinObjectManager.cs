@@ -1,25 +1,36 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class SpinManager
+public class SpinObjectManager : IDisposable
 {
     private List<GameObject> _instantiatedSpins = new List<GameObject>();
-
-    private int _currentSpinIndex = 0;
     
     private readonly List<GameObject> _spinObjects;
     private readonly Transform _spinParentTransform;
     private readonly IInstantiator _instantiator;
+    private readonly SpinIndexManager _spinIndexManager;
+    private readonly SpinEvents _spinEvents;
     
-    public SpinManager(List<GameObject> spinObjects, Transform spinParentTransform, IInstantiator instantiator)
+    public SpinObjectManager(List<GameObject> spinObjects, Transform spinParentTransform, IInstantiator instantiator,
+        SpinIndexManager spinIndexManager, SpinEvents spinEvents)
     {
         _spinObjects = spinObjects;
         _spinParentTransform = spinParentTransform;
         _instantiator = instantiator;
+        _spinIndexManager = spinIndexManager;
+        _spinEvents = spinEvents;
         
         InstantiateSpinObjects();
         SetActiveSpin();
+        
+        _spinEvents.AddOnSpinActionsEnd(SetActiveSpin);
+    }
+
+    public void Dispose()
+    {
+        _spinEvents.RemoveOnSpinActionsEnd(SetActiveSpin);
     }
 
     private void InstantiateSpinObjects()
@@ -43,8 +54,8 @@ public class SpinManager
         {
             spin.gameObject.SetActive(false);
         }
-        
-        _instantiatedSpins[_currentSpinIndex].gameObject.SetActive(true);
+
+        var index = _spinIndexManager.GetCurrentSpinIndex();
+        _instantiatedSpins[index].gameObject.SetActive(true);
     }
-    
 }

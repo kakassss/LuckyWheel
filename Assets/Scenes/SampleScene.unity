@@ -1513,6 +1513,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159729999}
   m_CullTransparentMesh: 1
+--- !u!1 &186713853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186713854}
+  m_Layer: 5
+  m_Name: InOutObjectsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &186713854
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186713853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1111250887}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 165}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &225678490
 GameObject:
   m_ObjectHideFlags: 0
@@ -8312,6 +8348,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1722161257}
+  - {fileID: 186713854}
   m_Father: {fileID: 1996245939}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15262,6 +15299,7 @@ GameObject:
   - component: {fileID: 2037588127}
   - component: {fileID: 2037588126}
   - component: {fileID: 2037588128}
+  - component: {fileID: 2037588129}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -15284,6 +15322,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 2037588128}
+  - {fileID: 2037588129}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -15333,6 +15372,23 @@ MonoBehaviour:
   - {fileID: 4839290457407693279, guid: 25de1d8f1aec14e46a51919075f2d591, type: 3}
   - {fileID: 4839290457407693279, guid: aa19a470caa640443803750388f4e071, type: 3}
   _spinParentTransform: {fileID: 1111250887}
+  _spinRewardsDataSo: {fileID: 11400000, guid: 374c89d737a99b74ea2e922790bb42ce, type: 2}
+--- !u!114 &2037588129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037588125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7929288ac1fd4fe4286ba4fd2aca015a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolPrefab: {fileID: 2990812220240958803, guid: a94e75d4b76794a47a97568be3fc9583,
+    type: 3}
+  _poolSize: 15
+  _poolParent: {fileID: 186713854}
 --- !u!1 &2051396600
 GameObject:
   m_ObjectHideFlags: 0

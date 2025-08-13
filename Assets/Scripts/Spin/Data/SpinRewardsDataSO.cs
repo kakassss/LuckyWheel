@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpinRewardsData", menuName = "Game Data/Spin Rewards Data")]
+[CreateAssetMenu(fileName = "SpinRewardsData", menuName = "ScriptableObjects/Spin Rewards Data")]
 public class SpinRewardsDataSO : ScriptableObject
 {
     public List<SpinRewardData> _bronzeSpinRewards = new List<SpinRewardData>();
