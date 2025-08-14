@@ -7,8 +7,8 @@ public class SpinMovementManager
     private const float SPIN_360 = 360;
     private const int SPIN_360AMOUNT = 1;
     
-    private Vector3 targetRotation;
-    private float duration = 2f;
+    private Vector3 _targetRotation;
+    private float _duration = 2f;
     
     private readonly SpinEvents _spinEvents;
     private readonly SpinRewardManager _spinRewardManager;
@@ -23,13 +23,13 @@ public class SpinMovementManager
 
     public void SetTargetRotation()
     {
-        var randomAngle = (SPIN_ANGLE * _spinRewardManager.CurrentSpinAngleRewardIndex) + (SPIN_360 * SPIN_360AMOUNT);
-        targetRotation = new Vector3(0, 0, randomAngle);
+        var randomAngle = (SPIN_ANGLE * _spinRewardManager.CurrentSpinAngleRewardIndex) + (SPIN_360 * SPIN_360AMOUNT) + _spinRotationProvider.SpinLastRotation.z;
+        _targetRotation = new Vector3(0, 0, randomAngle);
     }
     
     public void StartMovement(Transform transform)
     {
-        transform.DORotate(targetRotation, duration, RotateMode.FastBeyond360)
+        transform.DORotate(-_targetRotation, _duration, RotateMode.FastBeyond360)
             .SetEase(Ease.InOutQuad)
             .OnComplete((() =>
             {
