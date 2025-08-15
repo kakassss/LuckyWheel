@@ -4,7 +4,7 @@ using Zenject;
 
 public class InventoryManager
 {
-    private List<SpinRewardData> _inventoryData = new List<SpinRewardData>();
+    private List<InventoryData> _inventoryData = new List<InventoryData>();
     private List<InventoryDataUI> _inventoryUI = new List<InventoryDataUI>();
     
     private readonly InventoryDataUI _inventoryDataUI;
@@ -37,13 +37,14 @@ public class InventoryManager
             }
         }
         
-        Debug.Log("onur xdxddxd");
         AddNewData();
-        
-
         void AddNewData()
         {
-            _inventoryData.Add(newSpinRewardData);
+            var newInventoryData = new InventoryData();
+            newInventoryData.RewardName = newSpinRewardData.RewardName;
+            newInventoryData.Amount = newSpinRewardData.Amount;
+            _inventoryData.Add(newInventoryData);
+            
             var dataUI = _instantiator.InstantiatePrefabForComponent<InventoryDataUI>(_inventoryDataUI);
                 
             dataUI.transform.SetParent(_inventoryParent);
@@ -68,5 +69,18 @@ public class InventoryManager
                 _inventoryUI[i].Text.text = _inventoryUI[i].Amount.ToString();
             }
         }
+    }
+
+    public InventoryDataUI GetDataUI(SpinRewardData spinRewardData)
+    {
+        for (int i = 0; i < _inventoryUI.Count; i++)
+        {
+            if (_inventoryUI[i].SpinRewardData == spinRewardData)
+            {
+                return _inventoryUI[i];
+            }
+        }
+        
+        return null;
     }
 }

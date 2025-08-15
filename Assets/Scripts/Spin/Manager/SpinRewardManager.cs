@@ -8,10 +8,6 @@ public class SpinRewardManager
     public List<SpinRewardData> CurrentSpinRewardDataList => _currentSpinRewardDataList;
     public SpinRewardData CurrentSpinRewardData => _currentSpinRewardData;
     
-    private List<SpinRewardData> _bronzeSpinRewardDataList = new List<SpinRewardData>();
-    private List<SpinRewardData> _silverSpinRewardDataList = new List<SpinRewardData>();
-    private List<SpinRewardData> _goldenSpinRewardDataList = new List<SpinRewardData>();
-
     private List<SpinRewardData> _currentSpinRewardDataList = new List<SpinRewardData>();
     
     private readonly SpinRewardsDataSO _spinRewardsDataSO;
@@ -24,40 +20,29 @@ public class SpinRewardManager
         _spinRewardsDataSO = spinRewardsDataSO;
         _spinIndexManager = spinIndexManager;
         
-        SetSpinRewardData();
-
         _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
     }
-
-    private void SetSpinRewardData()
-    {
-        _bronzeSpinRewardDataList = _spinRewardsDataSO._bronzeSpinRewards;
-        _silverSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
-        _goldenSpinRewardDataList = _spinRewardsDataSO._goldenSpinRewards;
-    }
-
+    
     public void SetSpinRewardIndex()
     {
         if (_spinIndexManager.CurrentSpinIndex % 30 == 0)
         {
-            _currentSpinAngleRewardIndex = Random.Range(0, _goldenSpinRewardDataList.Count);
-            _currentSpinRewardDataList = _goldenSpinRewardDataList;
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._goldenSpinRewards.Count);
+            _currentSpinRewardDataList = _spinRewardsDataSO._goldenSpinRewards;
             _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
             return;
         }
 
         if (_spinIndexManager.CurrentSpinIndex % 5 == 0)
         {
-            _currentSpinAngleRewardIndex = Random.Range(0, _silverSpinRewardDataList.Count);
-            _currentSpinRewardDataList = _silverSpinRewardDataList;
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
+            _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
             _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
             return;
         }
-
-        Debug.Log(_currentSpinRewardDataList[_currentSpinAngleRewardIndex].RewardName);
         
-        _currentSpinAngleRewardIndex = Random.Range(0, _bronzeSpinRewardDataList.Count);
-        _currentSpinRewardDataList = _bronzeSpinRewardDataList;
+        _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._bronzeSpinRewards.Count);
+        _currentSpinRewardDataList = _spinRewardsDataSO._bronzeSpinRewards;
         _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
     }
 }

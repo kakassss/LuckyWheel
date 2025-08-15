@@ -23,7 +23,9 @@ public class SpinMovementManager
 
     public void SetTargetRotation()
     {
-        var randomAngle = (SPIN_ANGLE * _spinRewardManager.CurrentSpinAngleRewardIndex) + (SPIN_360 * SPIN_360AMOUNT) + _spinRotationProvider.SpinLastRotation.z;
+        var randomAngle = (SPIN_ANGLE * _spinRewardManager.CurrentSpinAngleRewardIndex) 
+                          + (SPIN_360 * SPIN_360AMOUNT) + _spinRotationProvider.SpinLastRotation.z;
+        
         _targetRotation = new Vector3(0, 0, randomAngle);
     }
     

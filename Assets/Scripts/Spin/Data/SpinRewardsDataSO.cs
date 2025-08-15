@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "SpinRewardsData", menuName = "ScriptableObjects/Spin Rewards Data")]
 public class SpinRewardsDataSO : ScriptableObject
