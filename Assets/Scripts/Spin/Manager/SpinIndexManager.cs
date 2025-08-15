@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 public class SpinIndexManager : IDisposable
 {
@@ -13,12 +12,12 @@ public class SpinIndexManager : IDisposable
     {
         _spinEvents = spinEvents;
         
-        _spinEvents.AddOnSpinActionsEnd(IncreaseSpinIndex);
+        _spinEvents.AddSpinMovementEnd(IncreaseSpinIndex);
     }
 
     public void Dispose()
     {
-        _spinEvents.RemoveOnSpinActionsEnd(IncreaseSpinIndex);
+        _spinEvents.RemoveSpinMovementEnd(IncreaseSpinIndex);
     }
 
     private void IncreaseSpinIndex()

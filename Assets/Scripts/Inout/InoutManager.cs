@@ -93,15 +93,20 @@ public class InoutManager : IDisposable
             }
             
             ScaleAnimation(target.image.transform);
+
+            _spinEvents.FireOnSpinActionsEnd();
         }));
     }
-
+    private Tween _textTween;
     private void TextAnimation(InventoryDataUI dataUI, float duration)
     {
-        DOTween.To(() => dataUI.TempAmount, x => {
+        _textTween.SetAutoKill(true);
+        _textTween = DOTween.To(() => dataUI.TempAmount, x => {
             dataUI.TempAmount = x;
             dataUI.Text.text = dataUI.TempAmount.ToString();
-        }, dataUI.Amount, duration).OnComplete((() => dataUI.TempAmount = dataUI.Amount));   
+        }, dataUI.Amount, duration).OnComplete((() => dataUI.TempAmount = dataUI.Amount));
+
+        
     }
     
     private void ScaleAnimation(Transform rectTransform)

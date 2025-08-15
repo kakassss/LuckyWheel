@@ -37,7 +37,6 @@ public class SpinMovementManager
             {
                 _spinRotationProvider.SpinLastRotation = transform.rotation; 
                 _spinEvents.FireSpinMovementEnd();
-                _spinEvents.FireOnSpinActionsEnd();
             }));
     }
 }
