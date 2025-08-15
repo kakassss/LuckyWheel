@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
+
 public class SpinMovementManager
 {
     private const int SPIN_ANGLE = 45;
@@ -13,12 +14,15 @@ public class SpinMovementManager
     private readonly SpinEvents _spinEvents;
     private readonly SpinRewardManager _spinRewardManager;
     private readonly SpinRotationProvider _spinRotationProvider;
+    private readonly GameFailManager _gameFailManager;
 
-    public SpinMovementManager(SpinEvents spinEvents, SpinRewardManager spinRewardManager, SpinRotationProvider spinRotationProvider)
+    public SpinMovementManager(SpinEvents spinEvents, SpinRewardManager spinRewardManager, SpinRotationProvider spinRotationProvider
+    ,GameFailManager gameFailManager)
     {
         _spinEvents = spinEvents;
         _spinRewardManager = spinRewardManager;
         _spinRotationProvider = spinRotationProvider;
+        _gameFailManager = gameFailManager;
     }
 
     public void StartAction(Transform transform)
@@ -41,7 +45,12 @@ public class SpinMovementManager
             .SetEase(Ease.InOutQuad)
             .OnComplete((() =>
             {
-                _spinRotationProvider.SpinLastRotation = transform.rotation; 
+                _spinRotationProvider.SpinLastRotation = transform.rotation;
+                if (_gameFailManager.Fail == true)
+                {
+                    _gameFailManager.OpenGameFailPopup();
+                    return;
+                }
                 _spinEvents.FireSpinMovementEnd();
             }));
     }

@@ -4,7 +4,6 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
 public class InoutManager : IDisposable
 {
     private const int INOUTOBJECT_AMOUNT = 5;

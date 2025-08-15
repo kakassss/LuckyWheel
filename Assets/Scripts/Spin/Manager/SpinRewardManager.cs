@@ -11,15 +11,16 @@ public class SpinRewardManager
     
     private readonly SpinRewardsDataSO _spinRewardsDataSO;
     private readonly SpinIndexManager _spinIndexManager;
+    private readonly GameFailManager _gameFailManager;
+    
     private int _currentSpinAngleRewardIndex;
     private SpinRewardData _currentSpinRewardData;
     
-    public SpinRewardManager(SpinRewardsDataSO spinRewardsDataSO, SpinIndexManager spinIndexManager)
+    public SpinRewardManager(SpinRewardsDataSO spinRewardsDataSO, SpinIndexManager spinIndexManager,GameFailManager gameFailManager)
     {
         _spinRewardsDataSO = spinRewardsDataSO;
         _spinIndexManager = spinIndexManager;
-        
-       // _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
+        _gameFailManager = gameFailManager;
     }
     
     public void SetSpinRewardData()
@@ -52,5 +53,10 @@ public class SpinRewardManager
         _currentSpinRewardDataList = _spinRewardsDataSO._bronzeSpinRewards;
         _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._bronzeSpinRewards.Count);
         _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
+        
+        if (_currentSpinRewardData.RewardName == "Death")
+        {
+            _gameFailManager.GameFailTrigger();
+        }
     }
 }
