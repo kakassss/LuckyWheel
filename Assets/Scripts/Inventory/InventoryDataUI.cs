@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InventoryDataUI : MonoBehaviour
 {
-    public RectTransform InventoryRect;
     public SpinRewardData SpinRewardData;
     public Image image;
     public TMP_Text Text;

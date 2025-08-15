@@ -8,6 +8,6 @@ public class InoutInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.BindInstance(_inoutSO).AsSingle().NonLazy();
-        Container.Bind<InoutHelper>().AsSingle().NonLazy();
+        Container.Bind<InoutManager>().AsSingle().NonLazy();
     }
 }

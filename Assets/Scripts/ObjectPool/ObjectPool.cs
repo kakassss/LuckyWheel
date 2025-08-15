@@ -42,6 +42,7 @@ public class ObjectPool<T> where T : Component
         
         T gameObject = _objectPoolList[0];
         _objectPoolList.RemoveAt(0);
+        gameObject.gameObject.SetActive(true);
         return gameObject;
     }
 

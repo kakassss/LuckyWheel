@@ -4,4 +4,5 @@ using UnityEngine.UI;
 public class InoutObject : MonoBehaviour
 {
     public Image ObjectImage;
+    public RectTransform ObjectRect;
 }
