@@ -27,6 +27,8 @@ public class SpinIndexManager : IDisposable
 
     public int GetCurrentSpinIndex()
     {
+        if (_currentSpinIndex == 1) return 1;
+        
         if (_currentSpinIndex % 30 == 0)
         {
             //Return Golden Spin

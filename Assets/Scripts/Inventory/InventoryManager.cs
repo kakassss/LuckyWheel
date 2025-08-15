@@ -38,6 +38,7 @@ public class InventoryManager : IDisposable
         if (_inventoryData.Count == 0)
         {
             AddNewData();
+            _spinEvents.FireOnSpinDataAdded();
             return;
         }
         
@@ -47,11 +48,14 @@ public class InventoryManager : IDisposable
             {
                 _inventoryData[i].Amount += newSpinRewardData.Amount;
                 SetDataUI(newSpinRewardData);
+                _spinEvents.FireOnSpinDataAdded();
                 return;
             }
         }
         
         AddNewData();
+        _spinEvents.FireOnSpinDataAdded();
+        
         void AddNewData()
         {
             var newInventoryData = new InventoryData();
@@ -77,7 +81,7 @@ public class InventoryManager : IDisposable
     {
         for (int i = 0; i < _inventoryUI.Count; i++)
         {
-            if (_inventoryUI[i].SpinRewardData == newSpinRewardData)
+            if (_inventoryUI[i].SpinRewardData.RewardName == newSpinRewardData.RewardName)
             {
                 _inventoryUI[i].Amount += newSpinRewardData.Amount;
                 //_inventoryUI[i].Text.text = _inventoryUI[i].Amount.ToString();
@@ -89,7 +93,7 @@ public class InventoryManager : IDisposable
     {
         for (int i = 0; i < _inventoryUI.Count; i++)
         {
-            if (_inventoryUI[i].SpinRewardData == spinRewardData)
+            if (_inventoryUI[i].SpinRewardData.RewardName == spinRewardData.RewardName)
             {
                 return _inventoryUI[i];
             }

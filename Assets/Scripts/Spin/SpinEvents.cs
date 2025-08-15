@@ -2,9 +2,25 @@
 
 public class SpinEvents
 {
+    private Action OnSpinDataAdded;
     private Action OnSpinMovementEnd;
     private Action OnSpinActionsEnd;
 
+    public void FireOnSpinDataAdded()
+    {
+        OnSpinDataAdded?.Invoke();
+    }
+
+    public void AddOnSpinDataAdded(Action action)
+    {
+        OnSpinDataAdded += action;
+    }
+
+    public void RemoveOnSpinDataAdded(Action action)
+    {
+        OnSpinDataAdded -= action;
+    }
+    
     public void FireSpinMovementEnd()
     {
         OnSpinMovementEnd?.Invoke();

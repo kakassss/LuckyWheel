@@ -11,6 +11,7 @@ public class ObjectPool<T> where T : Component
     private readonly IInstantiator _instantiator;
     
     private List<T> _objectPoolList = new List<T>();
+    private Vector3 _spawnPosition;
     
     public ObjectPool(T prefab, int poolSize, Transform poolParent, IInstantiator instantiator)
     {
@@ -30,6 +31,7 @@ public class ObjectPool<T> where T : Component
             obj.gameObject.SetActive(false);
             _objectPoolList.Add(obj);
         }
+        _spawnPosition = _objectPoolList[0].transform.position;
     }
     
     public T GetFromPool()
@@ -50,5 +52,6 @@ public class ObjectPool<T> where T : Component
     {
         _objectPoolList.Add(obj);
         obj.gameObject.SetActive(false);
+        obj.transform.position = _spawnPosition;
     }
 }

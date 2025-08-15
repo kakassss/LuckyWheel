@@ -32,8 +32,6 @@ public class ZoneUI : MonoBehaviour
 
     private void SetUI()
     {
-        if(_spinIndexManager.CurrentSpinIndex == 1) return;
-        
         var currentIndex = _spinIndexManager.GetCurrentSpinIndex();
 
         if (currentIndex == 1)

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class StageScrollBarUI : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class StageScrollBarUI : MonoBehaviour
     [SerializeField] private Color _imageColorSuperZone;
     
     private int _stageIndex = 1;
-
+    
     private void Awake()
     {
         SetStageUI();
@@ -35,6 +36,13 @@ public class StageScrollBarUI : MonoBehaviour
 
     private void SetUIColor(TMP_Text text,Image image,int index)
     {
+        if (index == 1)
+        {
+            text.color = _textColorZone;
+            image.color = _imageColorZone;
+            return;
+        }
+        
         if (index % 30 == 0)
         {
             text.color = _textColorSuperZone;

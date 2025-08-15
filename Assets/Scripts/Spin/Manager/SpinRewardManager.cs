@@ -25,6 +25,15 @@ public class SpinRewardManager
     
     public void SetSpinRewardIndex()
     {
+        //First Spin is safe 
+        if (_spinIndexManager.CurrentSpinIndex == 1)
+        {
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
+            _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
+            _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
+            return;
+        }
+        
         if (_spinIndexManager.CurrentSpinIndex % 30 == 0)
         {
             _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._goldenSpinRewards.Count);

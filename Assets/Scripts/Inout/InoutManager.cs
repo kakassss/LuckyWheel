@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
-using Zenject;
 using Random = UnityEngine.Random;
 
 
@@ -31,12 +29,12 @@ public class InoutManager : IDisposable
         _spinEvents = spinEvents;
         _inventoryManager = inventoryManager;
         
-        _spinEvents.AddSpinMovementEnd(StartInout);
+        _spinEvents.AddOnSpinDataAdded(StartInout);
     }
 
     public void Dispose()
     {
-        _spinEvents.RemoveSpinMovementEnd(StartInout);
+        _spinEvents.RemoveOnSpinDataAdded(StartInout);
     }
 
     private void StartInout()
@@ -76,10 +74,9 @@ public class InoutManager : IDisposable
     {
         Sequence sequence = DOTween.Sequence();
         sequence.SetAutoKill(true);
+        
         var target = _inventoryManager.GetDataUI(_spinRewardManager.CurrentSpinRewardData);
-        
-        TextAnimation(target,1f);
-        
+
         for (int i = 0; i < _inoutObjects.Count; i++)
         {
             sequence.Join(_inoutObjects[i].ObjectRect.DOMove(target.transform.position, 0.5f));
@@ -89,24 +86,21 @@ public class InoutManager : IDisposable
         {
             for (int i = 0; i < _inoutObjects.Count; i++)
             {
-                _inoutObjects[i].gameObject.SetActive(false);
+                _inoutObjectPool.ReturnToPool(_inoutObjects[i]);
             }
             
             ScaleAnimation(target.image.transform);
-
             _spinEvents.FireOnSpinActionsEnd();
         }));
+        TextAnimation(target,1f);
     }
-    private Tween _textTween;
+    
     private void TextAnimation(InventoryDataUI dataUI, float duration)
     {
-        _textTween.SetAutoKill(true);
-        _textTween = DOTween.To(() => dataUI.TempAmount, x => {
-            dataUI.TempAmount = x;
-            dataUI.Text.text = dataUI.TempAmount.ToString();
-        }, dataUI.Amount, duration).OnComplete((() => dataUI.TempAmount = dataUI.Amount));
-
-        
+        DOTween.To(() => dataUI.TempAmount, x =>
+            { dataUI.TempAmount = x;
+                dataUI.Text.text = dataUI.TempAmount.ToString(); }, dataUI.Amount, duration)
+            .OnComplete((() => dataUI.TempAmount = dataUI.Amount));
     }
     
     private void ScaleAnimation(Transform rectTransform)
