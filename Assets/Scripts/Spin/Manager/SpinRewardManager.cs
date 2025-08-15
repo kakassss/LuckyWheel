@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpinRewardManager
@@ -20,38 +19,38 @@ public class SpinRewardManager
         _spinRewardsDataSO = spinRewardsDataSO;
         _spinIndexManager = spinIndexManager;
         
-        _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
+       // _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
     }
     
-    public void SetSpinRewardIndex()
+    public void SetSpinRewardData()
     {
         //First Spin is safe 
         if (_spinIndexManager.CurrentSpinIndex == 1)
         {
-            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
             _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
             _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
             return;
         }
         
         if (_spinIndexManager.CurrentSpinIndex % 30 == 0)
         {
-            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._goldenSpinRewards.Count);
             _currentSpinRewardDataList = _spinRewardsDataSO._goldenSpinRewards;
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._goldenSpinRewards.Count);
             _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
             return;
         }
 
         if (_spinIndexManager.CurrentSpinIndex % 5 == 0)
         {
-            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
             _currentSpinRewardDataList = _spinRewardsDataSO._silverSpinRewards;
+            _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._silverSpinRewards.Count);
             _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
             return;
         }
         
-        _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._bronzeSpinRewards.Count);
         _currentSpinRewardDataList = _spinRewardsDataSO._bronzeSpinRewards;
+        _currentSpinAngleRewardIndex = Random.Range(0, _spinRewardsDataSO._bronzeSpinRewards.Count);
         _currentSpinRewardData = _currentSpinRewardDataList[_currentSpinAngleRewardIndex];
     }
 }

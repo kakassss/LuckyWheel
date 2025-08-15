@@ -21,7 +21,13 @@ public class SpinMovementManager
         _spinRotationProvider = spinRotationProvider;
     }
 
-    public void SetTargetRotation()
+    public void StartAction(Transform transform)
+    {
+        SetTargetRotation();
+        StartMovement(transform);
+    }
+    
+    private void SetTargetRotation()
     {
         var randomAngle = (SPIN_ANGLE * _spinRewardManager.CurrentSpinAngleRewardIndex) 
                           + (SPIN_360 * SPIN_360AMOUNT) + _spinRotationProvider.SpinLastRotation.z;
@@ -29,7 +35,7 @@ public class SpinMovementManager
         _targetRotation = new Vector3(0, 0, randomAngle);
     }
     
-    public void StartMovement(Transform transform)
+    private void StartMovement(Transform transform)
     {
         transform.DORotate(-_targetRotation, _duration, RotateMode.FastBeyond360)
             .SetEase(Ease.InOutQuad)

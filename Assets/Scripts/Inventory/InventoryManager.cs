@@ -69,7 +69,6 @@ public class InventoryManager : IDisposable
             dataUI.transform.localScale = Vector3.one;
             dataUI.SpinRewardData = newSpinRewardData;
             dataUI.image.sprite = newSpinRewardData.Icon;
-            //dataUI.Text.text = newSpinRewardData.Amount.ToString();
                 
             dataUI.Amount += newSpinRewardData.Amount;
                 
@@ -84,7 +83,6 @@ public class InventoryManager : IDisposable
             if (_inventoryUI[i].SpinRewardData.RewardName == newSpinRewardData.RewardName)
             {
                 _inventoryUI[i].Amount += newSpinRewardData.Amount;
-                //_inventoryUI[i].Text.text = _inventoryUI[i].Amount.ToString();
             }
         }
     }

@@ -15,7 +15,6 @@ public class SpinInstaller : MonoInstaller
         Container.Bind<SpinMovementManager>().AsSingle().NonLazy();
         Container.Bind<SpinRewardManager>().AsSingle().NonLazy();
         Container.Bind<SpinIndexManager>().AsSingle().NonLazy();
-        Container.Bind<SpinActionManager>().AsSingle().NonLazy();
         
         Container.Bind<SpinEvents>().AsSingle().NonLazy();
         Container.Bind<SpinRotationProvider>().AsSingle().NonLazy();

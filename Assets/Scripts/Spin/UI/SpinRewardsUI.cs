@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -33,6 +31,8 @@ public class SpinRewardsUI : MonoBehaviour
 
     private void SetUI()
     {
+        _spinRewardManager.SetSpinRewardData();
+        
         for (int i = 0; i < _spinRewardUIData.Count; i++)
         {
             _spinRewardUIData[i].Text.gameObject.SetActive(_spinRewardManager.CurrentSpinRewardDataList[i].Amount > 0);

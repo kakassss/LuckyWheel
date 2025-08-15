@@ -5,14 +5,14 @@ public class SpinButtonListener : BaseButtonListener
 {
     [SerializeField] private Transform _spinTransform;
     
-    private SpinActionManager _spinActionManager;
+    private SpinMovementManager _spinMovementManager;
     private SpinEvents _spinEvents;
     private SpinRotationProvider _spinRotationProvider;
     
     [Inject]
-    private void Construct(SpinActionManager spinActionManager, SpinEvents spinEvents, SpinRotationProvider spinRotationProvider)
+    private void Construct(SpinMovementManager spinMovementManager, SpinEvents spinEvents, SpinRotationProvider spinRotationProvider)
     {
-        _spinActionManager = spinActionManager;
+        _spinMovementManager = spinMovementManager;
         _spinEvents = spinEvents;
         _spinRotationProvider = spinRotationProvider;
     }
@@ -31,6 +31,6 @@ public class SpinButtonListener : BaseButtonListener
     protected override void OnClick()
     {
         ButtonDisabled();
-        _spinActionManager.StartActions(_spinTransform);
+        _spinMovementManager.StartAction(_spinTransform);
     }
 }
