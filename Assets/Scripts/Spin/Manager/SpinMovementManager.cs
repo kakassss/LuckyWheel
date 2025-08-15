@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-
 public class SpinMovementManager
 {
+    public bool IsSpinning = false;
+    
     private const int SPIN_ANGLE = 45;
     private const float SPIN_360 = 360;
     private const int SPIN_360AMOUNT = 1;
@@ -37,6 +38,7 @@ public class SpinMovementManager
                           + (SPIN_360 * SPIN_360AMOUNT) + _spinRotationProvider.SpinLastRotation.z;
         
         _targetRotation = new Vector3(0, 0, randomAngle);
+        IsSpinning = true;
     }
     
     private void StartMovement(Transform transform)
@@ -46,6 +48,8 @@ public class SpinMovementManager
             .OnComplete((() =>
             {
                 _spinRotationProvider.SpinLastRotation = transform.rotation;
+                IsSpinning = false;
+                
                 if (_gameFailManager.Fail == true)
                 {
                     _gameFailManager.OpenGameFailPopup();
