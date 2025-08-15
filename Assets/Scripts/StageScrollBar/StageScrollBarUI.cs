@@ -85,8 +85,10 @@ public class StageScrollBarUI : MonoBehaviour
         }
         
         _stageTexts[_spinIndexManager.CurrentSpinIndex -1].color = _textColorDefaultBlack;
-        if((_spinIndexManager.CurrentSpinIndex -1) % 5 != 0 || (_spinIndexManager.CurrentSpinIndex -1) % 30 != 0)
+        if ((_spinIndexManager.CurrentSpinIndex - 1) % 5 != 0)
+        {
             _stageTexts[_spinIndexManager.CurrentSpinIndex - 2].color = _textInactiveColorDefault;
+        }
     }
 
     private void SetUIColor(TMP_Text text,Image image,int index)
