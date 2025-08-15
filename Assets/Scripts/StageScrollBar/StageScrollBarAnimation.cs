@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class StageScrollBarAnimation : MonoBehaviour
 {
@@ -8,6 +10,24 @@ public class StageScrollBarAnimation : MonoBehaviour
     [SerializeField] private RectTransform _scrollBarTexts;
     [SerializeField] private RectTransform _scrollBarImages;
     
+    private SpinEvents _spinEvents;
+
+    [Inject]
+    private void Construct(SpinEvents spinEvents)
+    {
+        _spinEvents = spinEvents;
+    }
+
+    private void OnEnable()
+    {
+        _spinEvents.AddSpinMovementEnd(Movement);
+    }
+
+    private void OnDisable()
+    {
+        _spinEvents.RemoveSpinMovementEnd(Movement);
+    }
+
     private void Movement()
     {
         Sequence sequence = DOTween.Sequence();
