@@ -64,36 +64,29 @@ public class StageScrollBarUI : MonoBehaviour
     
     private void SetInActiveColors()
     {
-        for (int i = 0; i < _spinIndexManager.CurrentSpinIndex -1; i++)
+        if (_spinIndexManager.CurrentSpinIndex == 2)
         {
-            if (i % 30 == 0 && i != 0)
-            {
-                _stageTexts[i].color = _textInactiveColorSuperZone;
-                continue;
-            }
-
-            if (i % 4 == 0)
-            {
-                _stageTexts[i].color = _textInactiveColorZone;
-                continue;
-            }
-            
-            _stageTexts[i].color = _textInactiveColorDefault;
+            _stageTexts[0].color = _textInactiveColorZone;
+            return;
         }
         
-        if ((_spinIndexManager.CurrentSpinIndex -1) % 30 == 0)
+        if ((_spinIndexManager.CurrentSpinIndex) % 30 == 0)
         {
             _stageTexts[_spinIndexManager.CurrentSpinIndex -1].color = _textInactiveColorSuperZone;
+            _stageTexts[_spinIndexManager.CurrentSpinIndex - 2].color = _textInactiveColorDefault;
             return;
         }
 
-        if ((_spinIndexManager.CurrentSpinIndex -1) % 4 == 0)
+        if ((_spinIndexManager.CurrentSpinIndex) % 5 == 0)
         {
-            _stageTexts[_spinIndexManager.CurrentSpinIndex -1].color = _textInactiveColorZone;
+            _stageTexts[_spinIndexManager.CurrentSpinIndex - 1].color = _textInactiveColorZone;
+            _stageTexts[_spinIndexManager.CurrentSpinIndex - 2].color = _textInactiveColorDefault;
             return;
         }
         
         _stageTexts[_spinIndexManager.CurrentSpinIndex -1].color = _textColorDefaultBlack;
+        if((_spinIndexManager.CurrentSpinIndex -1) % 5 != 0 || (_spinIndexManager.CurrentSpinIndex -1) % 30 != 0)
+            _stageTexts[_spinIndexManager.CurrentSpinIndex - 2].color = _textInactiveColorDefault;
     }
 
     private void SetUIColor(TMP_Text text,Image image,int index)
