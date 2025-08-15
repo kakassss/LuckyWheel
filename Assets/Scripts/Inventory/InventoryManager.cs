@@ -87,6 +87,31 @@ public class InventoryManager : IDisposable
         }
     }
 
+    public InventoryData GetInventoryDataByName(string spinRewardName)
+    {
+        for (int i = 0; i < _inventoryData.Count; i++)
+        {
+            if (_inventoryData[i].RewardName == spinRewardName)
+            {
+                return _inventoryData[i];
+            }
+        }
+        return null;
+    }
+    
+    public InventoryDataUI GetDataUIByName(string spinRewardName)
+    {
+        for (int i = 0; i < _inventoryUI.Count; i++)
+        {
+            if (_inventoryUI[i].SpinRewardData.RewardName == spinRewardName)
+            {
+                return _inventoryUI[i];
+            }
+        }
+        
+        return null;
+    }
+    
     public InventoryDataUI GetDataUI(SpinRewardData spinRewardData)
     {
         for (int i = 0; i < _inventoryUI.Count; i++)
