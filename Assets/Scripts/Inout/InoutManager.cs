@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -18,6 +19,9 @@ public class InoutManager : IDisposable
     private List<InoutObject> _inoutObjects = new List<InoutObject>();
     private float _rangeX = 200f;
     private float _rangeY = 200f;
+    
+    private float _scaleAmount = 1.35f;
+    private float _scaleDuration = 0.25f;
     
     private InoutManager(ObjectPool<InoutObject> inoutObjectPool, SpinRewardManager spinRewardManager,
         SpinEvents spinEvents, InventoryManager inventoryManager)
@@ -73,7 +77,9 @@ public class InoutManager : IDisposable
         Sequence sequence = DOTween.Sequence();
         sequence.SetAutoKill(true);
         var target = _inventoryManager.GetDataUI(_spinRewardManager.CurrentSpinRewardData);
-
+        
+        TextAnimation(target,1f);
+        
         for (int i = 0; i < _inoutObjects.Count; i++)
         {
             sequence.Join(_inoutObjects[i].ObjectRect.DOMove(target.transform.position, 0.5f));
@@ -89,8 +95,15 @@ public class InoutManager : IDisposable
             ScaleAnimation(target.image.transform);
         }));
     }
-    private float _scaleAmount = 1.35f;
-    private float _duration = 0.25f;
+
+    private void TextAnimation(InventoryDataUI dataUI, float duration)
+    {
+        DOTween.To(() => dataUI.TempAmount, x => {
+            dataUI.TempAmount = x;
+            dataUI.Text.text = dataUI.TempAmount.ToString();
+        }, dataUI.Amount, duration).OnComplete((() => dataUI.TempAmount = dataUI.Amount));   
+    }
+    
     private void ScaleAnimation(Transform rectTransform)
     {
         rectTransform.localScale = Vector3.one;
@@ -98,8 +111,8 @@ public class InoutManager : IDisposable
         Sequence sequence = DOTween.Sequence();
         sequence.SetAutoKill(true);
         
-        sequence.Append(rectTransform.DOScale(_scaleAmount, _duration).SetEase(Ease.OutQuad));
-        sequence.Append(rectTransform.DOScale(1f, _duration).SetEase(Ease.InQuad));
+        sequence.Append(rectTransform.DOScale(_scaleAmount, _scaleDuration).SetEase(Ease.OutQuad));
+        sequence.Append(rectTransform.DOScale(1f, _scaleDuration).SetEase(Ease.InQuad));
     }
     
 }

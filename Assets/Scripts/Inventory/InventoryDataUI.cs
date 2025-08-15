@@ -10,6 +10,7 @@ public class InventoryDataUI : MonoBehaviour
     public TMP_Text Text;
     
     public int Amount;
+    public int TempAmount;
 }
 
 [Serializable]
