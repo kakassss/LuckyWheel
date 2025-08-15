@@ -9024,12 +9024,16 @@ MonoBehaviour:
   - {fileID: 314366440}
   - {fileID: 453856487}
   - {fileID: 683230503}
+  _textColorDefaultBlack: {r: 0, g: 0, b: 0, a: 0.79607844}
   _textColorDefault: {r: 1, g: 1, b: 1, a: 1}
   _textColorZone: {r: 0.089953184, g: 1, b: 0, a: 1}
   _textColorSuperZone: {r: 1, g: 0.92926645, b: 0, a: 1}
   _imageColorDefault: {r: 1, g: 1, b: 1, a: 0.39215687}
   _imageColorZone: {r: 0.09019608, g: 1, b: 0, a: 0.39215687}
   _imageColorSuperZone: {r: 1, g: 0.92941177, b: 0, a: 0.39215687}
+  _textInactiveColorDefault: {r: 1, g: 1, b: 1, a: 0.39215687}
+  _textInactiveColorZone: {r: 0.09019608, g: 1, b: 0, a: 0.39215687}
+  _textInactiveColorSuperZone: {r: 1, g: 0.92941177, b: 0, a: 0.39215687}
 --- !u!114 &1180766671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15585,7 +15589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d473a8dd95a0d469255f49452b0244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inoutSO: {fileID: 11400000, guid: 4638016cbcf39fc45a6c695516a9da1c, type: 2}
 --- !u!1 &2051396600
 GameObject:
   m_ObjectHideFlags: 0
