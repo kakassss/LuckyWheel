@@ -65,7 +65,6 @@ public class InoutManager : IDisposable
             
             sequence.Join(_inoutObjects[i].ObjectRect.DOAnchorPos(targetPos, 0.5f));
         }
-
         sequence.OnComplete(InoutTargetMovementSequence);
     }
 
@@ -85,6 +84,7 @@ public class InoutManager : IDisposable
         {
             for (int i = 0; i < _inoutObjects.Count; i++)
             {
+                _inoutObjects[i].ObjectRect.anchoredPosition = Vector2.zero;
                 _inoutObjectPool.ReturnToPool(_inoutObjects[i]);
             }
             

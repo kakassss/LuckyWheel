@@ -52,6 +52,5 @@ public class ObjectPool<T> where T : Component
     {
         _objectPoolList.Add(obj);
         obj.gameObject.SetActive(false);
-        obj.transform.position = _spawnPosition;
     }
 }
