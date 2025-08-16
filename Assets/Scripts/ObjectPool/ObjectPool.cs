@@ -31,7 +31,7 @@ public class ObjectPool<T> where T : Component
             obj.gameObject.SetActive(false);
             _objectPoolList.Add(obj);
         }
-        _spawnPosition = _objectPoolList[0].transform.position;
+        _spawnPosition = _poolParent.transform.position;
     }
     
     public T GetFromPool()

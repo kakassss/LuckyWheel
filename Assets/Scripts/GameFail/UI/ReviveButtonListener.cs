@@ -23,6 +23,7 @@ public class ReviveButtonListener : BaseButtonListener
         var coinData = _inventoryManager.GetInventoryDataByName(COIN);
         var coinDataUI = _inventoryManager.GetDataUIByName(COIN);
         
+        if(coinData == null) return;
         if(coinData.Amount < _cost) return;
         
         
