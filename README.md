@@ -1,3 +1,5 @@
+Son 2 Commit, case süresi bittikten sonra atılmıştır. Inout ve reviveCoin için bug fix yollandı.
+
 GamePlay: https://www.youtube.com/watch?v=3mI-dp2eLx4
 
 4:3
